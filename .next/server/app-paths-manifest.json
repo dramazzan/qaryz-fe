@@ -1,12 +1,4 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/(auth)/login/page": "app/(auth)/login/page.js",
-  "/(app)/add/page": "app/(app)/add/page.js",
-  "/(app)/activity/[kind]/[id]/page": "app/(app)/activity/[kind]/[id]/page.js",
-  "/(app)/page": "app/(app)/page.js",
-  "/(app)/groups/page": "app/(app)/groups/page.js",
-  "/(app)/profile/page": "app/(app)/profile/page.js",
-  "/(app)/friends/page": "app/(app)/friends/page.js",
-  "/(app)/history/page": "app/(app)/history/page.js",
-  "/(app)/groups/[groupId]/page": "app/(app)/groups/[groupId]/page.js"
+  "/(app)/page": "app/(app)/page.js"
 }
