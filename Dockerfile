@@ -17,7 +17,6 @@ FROM deps AS builder
 WORKDIR /app
 
 COPY . .
-RUN DATABASE_URL="mongodb://127.0.0.1:27017/qaryz" npm run prisma:generate
 RUN npm run build
 
 FROM base AS runner
@@ -30,4 +29,4 @@ COPY --from=builder /app ./
 
 EXPOSE 3000
 
-CMD ["npm", "run", "start:web"]
+CMD ["npm", "start"]

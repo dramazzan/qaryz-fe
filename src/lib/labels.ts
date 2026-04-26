@@ -1,5 +1,4 @@
-import type { DirectDebtStatus, ExpenseParticipantStatus, GroupRole } from "@prisma/client";
-
+import type { DirectDebtStatus, ExpenseParticipantStatus, GroupRole } from "@/lib/api-types";
 import type { ActivityEventType } from "@/lib/types";
 
 export function formatGroupRole(role: GroupRole) {
@@ -48,4 +47,3 @@ export function formatExpenseParticipantStatus(
       return "погашено";
   }
 }
-
