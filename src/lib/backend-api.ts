@@ -15,12 +15,15 @@ export class BackendApiError extends Error {
 }
 
 function getBackendUrl(path: string) {
-  const baseUrl = process.env.BACKEND_URL ?? "http://127.0.0.1:4000";
+  const baseUrl = process.env.BACKEND_URL ?? "https://qaryz-be.onrender.com";
   return new URL(path, baseUrl).toString();
 }
 
 export function getPublicBackendUrl(path: string) {
-  const baseUrl = process.env.NEXT_PUBLIC_BACKEND_ORIGIN ?? process.env.BACKEND_PUBLIC_ORIGIN ?? "http://localhost:4000";
+  const baseUrl =
+    process.env.NEXT_PUBLIC_BACKEND_ORIGIN ??
+    process.env.BACKEND_PUBLIC_ORIGIN ??
+    "https://qaryz-be.onrender.com";
   return new URL(path, baseUrl).toString();
 }
 
