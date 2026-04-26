@@ -22,8 +22,8 @@ export function AppShell({ user, unreadCount, children }: AppShellProps) {
     .toUpperCase();
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="mx-auto flex min-h-screen max-w-md flex-col">
+    <div className="min-h-dvh bg-background">
+      <div className="mx-auto flex min-h-dvh max-w-md flex-col">
         <div className="px-4 pb-3 pt-[max(env(safe-area-inset-top),1.25rem)]">
           <div className="flex items-center justify-between rounded-lg border border-border bg-card px-3 py-3">
             <div>
@@ -36,7 +36,7 @@ export function AppShell({ user, unreadCount, children }: AppShellProps) {
             </Avatar>
           </div>
         </div>
-        <main className="flex-1 px-4 pb-24">{children}</main>
+        <main className="flex-1 px-4 pb-[calc(7rem+env(safe-area-inset-bottom))]">{children}</main>
         <BottomNav unreadCount={unreadCount} />
       </div>
     </div>

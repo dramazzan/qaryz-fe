@@ -19,12 +19,12 @@ export function BottomNav({ unreadCount = 0 }: { unreadCount?: number }) {
 
   return (
     <>
-      <div className="fixed bottom-[calc(env(safe-area-inset-bottom)+5.25rem)] left-1/2 z-30 w-full max-w-md -translate-x-1/2 px-4">
+      <div className="pointer-events-none fixed bottom-[calc(env(safe-area-inset-bottom)+5.5rem)] left-1/2 z-50 w-full max-w-md -translate-x-1/2 px-4">
         <Link
           href="/add"
           aria-label="Добавить запись"
           className={cn(
-            "ml-auto flex h-12 w-12 items-center justify-center rounded-lg border border-primary bg-primary text-primary-foreground transition-transform hover:-translate-y-0.5",
+            "pointer-events-auto ml-auto flex h-12 w-12 items-center justify-center rounded-lg border border-primary bg-primary text-primary-foreground shadow-lg transition-transform hover:-translate-y-0.5",
             pathname === "/add" && "bg-foreground"
           )}
         >
@@ -32,7 +32,7 @@ export function BottomNav({ unreadCount = 0 }: { unreadCount?: number }) {
         </Link>
       </div>
 
-      <nav className="sticky bottom-0 z-20 border-t border-border bg-card px-2 pb-[calc(env(safe-area-inset-bottom)+0.5rem)] pt-2">
+      <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background px-2 pb-[calc(env(safe-area-inset-bottom)+0.5rem)] pt-2 shadow-[0_-12px_30px_rgba(15,23,42,0.08)]">
         <div className="mx-auto grid max-w-md grid-cols-5 gap-1">
           {items.map((item) => {
             const Icon = item.icon;
