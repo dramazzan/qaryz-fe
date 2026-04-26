@@ -3,12 +3,20 @@ import { redirect } from "next/navigation";
 import { GoogleSignInButton } from "@/components/forms/google-sign-in-button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { getOptionalUser } from "@/lib/auth-helpers";
+import { getSingleSearchParam, normalizeReturnTo } from "@/lib/return-to";
 
-export default async function LoginPage() {
+type LoginPageProps = {
+  searchParams?: {
+    returnTo?: string | string[];
+  };
+};
+
+export default async function LoginPage({ searchParams }: LoginPageProps) {
   const user = await getOptionalUser();
+  const returnTo = normalizeReturnTo(getSingleSearchParam(searchParams?.returnTo));
 
   if (user) {
-    redirect("/");
+    redirect(returnTo);
   }
 
   return (
@@ -31,7 +39,7 @@ export default async function LoginPage() {
             <CardDescription>Войдите через Google, чтобы открыть свой профиль и группы.</CardDescription>
           </CardHeader>
           <CardContent>
-            <GoogleSignInButton />
+            <GoogleSignInButton returnTo={returnTo} />
           </CardContent>
         </Card>
       </div>

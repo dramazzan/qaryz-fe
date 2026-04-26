@@ -3,8 +3,13 @@ import { Chrome } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getPublicBackendUrl } from "@/lib/backend-api";
 
-export function GoogleSignInButton() {
-  const googleAuthUrl = getPublicBackendUrl("/auth/google");
+type GoogleSignInButtonProps = {
+  returnTo?: string;
+};
+
+export function GoogleSignInButton({ returnTo = "/" }: GoogleSignInButtonProps) {
+  const query = returnTo === "/" ? "" : `?${new URLSearchParams({ returnTo }).toString()}`;
+  const googleAuthUrl = getPublicBackendUrl(`/auth/google${query}`);
 
   return (
     <Button size="lg" className="w-full" asChild>

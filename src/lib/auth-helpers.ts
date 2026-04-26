@@ -1,8 +1,10 @@
 import { redirect } from "next/navigation";
+import { headers } from "next/headers";
 import { cache } from "react";
 
 import type { ApiUser } from "@/lib/api-types";
 import { BackendApiError, backendGet } from "@/lib/backend-api";
+import { normalizeReturnTo } from "@/lib/return-to";
 
 const getCurrentUser = cache(async () => {
   try {
@@ -20,7 +22,13 @@ export async function requireUser() {
   const user = await getCurrentUser();
 
   if (!user?.id) {
-    redirect("/login");
+    const requestHeaders = headers();
+    const returnTo = normalizeReturnTo(
+      `${requestHeaders.get("x-qaryz-pathname") ?? "/"}${requestHeaders.get("x-qaryz-search") ?? ""}`
+    );
+    const loginPath = returnTo === "/" ? "/login" : `/login?${new URLSearchParams({ returnTo }).toString()}`;
+
+    redirect(loginPath);
   }
 
   return user;
