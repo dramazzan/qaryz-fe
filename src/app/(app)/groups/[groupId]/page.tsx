@@ -56,14 +56,13 @@ export default async function GroupDetailPage({
         <Card>
           <CardHeader>
             <CardTitle>Настройки</CardTitle>
-            <CardDescription>Поддерживайте название актуальным. Валюта блокируется после первого расхода.</CardDescription>
+            <CardDescription>Поддерживайте название актуальным.</CardDescription>
           </CardHeader>
           <CardContent>
             <GroupSettingsForm
               groupId={group.id}
               name={group.name}
               currencyCode={group.currencyCode}
-              currencyLocked={group.hasExpenses}
             />
           </CardContent>
         </Card>

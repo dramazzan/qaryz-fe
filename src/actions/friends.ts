@@ -9,7 +9,8 @@ export async function addFriend(_: ActionState, formData: FormData): Promise<Act
     await backendJson("/api/friends", {
       method: "POST",
       body: {
-        email: formData.get("email")
+        email: formData.get("email") || undefined,
+        userId: formData.get("userId") || undefined
       }
     });
 

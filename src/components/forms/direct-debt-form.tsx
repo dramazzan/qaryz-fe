@@ -8,6 +8,7 @@ import { SubmitButton } from "@/components/forms/submit-button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { DEFAULT_CURRENCY_CODE } from "@/lib/money";
 import { cn } from "@/lib/utils";
 import { initialActionState } from "@/lib/types";
 
@@ -17,14 +18,15 @@ type DirectDebtFormProps = {
     name: string;
     email: string;
   }>;
-  defaultCurrencyCode: string;
 };
 
-export function DirectDebtForm({ contacts, defaultCurrencyCode }: DirectDebtFormProps) {
+export function DirectDebtForm({ contacts }: DirectDebtFormProps) {
   const [state, formAction] = useFormState(createDirectDebt, initialActionState);
 
   return (
     <form action={formAction} className="space-y-4">
+      <input type="hidden" name="currencyCode" value={DEFAULT_CURRENCY_CODE} />
+
       <div className="grid grid-cols-2 gap-1 rounded-lg border border-border bg-secondary/50 p-1">
         <label className="cursor-pointer">
           <input type="radio" name="direction" value="owed_to_me" defaultChecked className="peer sr-only" />
@@ -45,15 +47,9 @@ export function DirectDebtForm({ contacts, defaultCurrencyCode }: DirectDebtForm
         <Input id="debt-title" name="title" placeholder="Такси обратно" required />
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2">
-        <div className="space-y-2">
-          <Label htmlFor="debt-amount">Сумма</Label>
-          <Input id="debt-amount" name="amount" inputMode="decimal" placeholder="25.00" required />
-        </div>
-        <div className="space-y-2">
-          <Label htmlFor="debt-currency">Валюта</Label>
-          <Input id="debt-currency" name="currencyCode" defaultValue={defaultCurrencyCode} maxLength={3} required />
-        </div>
+      <div className="space-y-2">
+        <Label htmlFor="debt-amount">Сумма</Label>
+        <Input id="debt-amount" name="amount" inputMode="decimal" placeholder="2500" required />
       </div>
 
       <div className="space-y-2">

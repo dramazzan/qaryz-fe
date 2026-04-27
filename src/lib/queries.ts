@@ -8,6 +8,7 @@ import type {
   GroupDetailData,
   GroupsData,
   HistoryItem,
+  PlatformUsersData,
   ProfileData,
   RecentContact,
   BalanceEntry
@@ -31,6 +32,10 @@ export async function getGroupsData(_userId: string) {
 
 export async function getFriendsData(_userId: string) {
   return backendGet<FriendsData>("/api/friends");
+}
+
+export async function getPlatformUsersData(_userId: string) {
+  return backendGet<PlatformUsersData>("/api/users");
 }
 
 export async function getGroupDetailData(_userId: string, groupId: string) {

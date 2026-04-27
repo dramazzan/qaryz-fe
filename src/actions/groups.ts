@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 
 import { actionError, refreshAppPaths } from "@/actions/common";
 import { backendJson } from "@/lib/backend-api";
+import { DEFAULT_CURRENCY_CODE } from "@/lib/money";
 import type { ActionState } from "@/lib/types";
 
 type GroupCreateResponse = {
@@ -22,7 +23,7 @@ export async function createGroup(_: ActionState, formData: FormData): Promise<A
       method: "POST",
       body: {
         name: formData.get("name"),
-        currencyCode: String(formData.get("currencyCode") ?? "").toUpperCase()
+        currencyCode: DEFAULT_CURRENCY_CODE
       }
     });
 
@@ -79,7 +80,7 @@ export async function updateGroupSettings(_: ActionState, formData: FormData): P
       method: "PATCH",
       body: {
         name: formData.get("name"),
-        currencyCode: String(formData.get("currencyCode") ?? "").toUpperCase()
+        currencyCode: String(formData.get("currencyCode") || DEFAULT_CURRENCY_CODE).toUpperCase()
       }
     });
 

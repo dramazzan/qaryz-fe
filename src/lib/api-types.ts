@@ -110,6 +110,14 @@ export type Friend = RecentContact & {
 
 export type FriendsData = Friend[];
 
+export type PlatformUser = RecentContact & {
+  createdAt: Date;
+  isFriend: boolean;
+  friendshipCreatedAt: Date | null;
+};
+
+export type PlatformUsersData = PlatformUser[];
+
 export type AddPageData = {
   groups: Array<{
     id: string;

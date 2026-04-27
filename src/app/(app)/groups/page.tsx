@@ -40,7 +40,7 @@ export default async function GroupsPage({
       <Card>
         <CardHeader>
           <CardTitle>Создать новую группу</CardTitle>
-          <CardDescription>Одна валюта на группу делает расчёты простыми и понятными.</CardDescription>
+          <CardDescription>Новые группы создаются в тенге.</CardDescription>
         </CardHeader>
         <CardContent>
           <GroupCreateForm />

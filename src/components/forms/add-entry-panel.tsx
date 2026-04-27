@@ -24,14 +24,12 @@ type AddEntryPanelProps = {
     email: string;
   }>;
   defaultGroupId?: string;
-  defaultCurrencyCode: string;
 };
 
 export function AddEntryPanel({
   groups,
   contacts,
-  defaultGroupId,
-  defaultCurrencyCode
+  defaultGroupId
 }: AddEntryPanelProps) {
   const [mode, setMode] = useState<"expense" | "debt">("expense");
 
@@ -65,7 +63,7 @@ export function AddEntryPanel({
           {mode === "expense" ? (
             <SharedExpenseForm groups={groups} defaultGroupId={defaultGroupId} />
           ) : (
-            <DirectDebtForm contacts={contacts} defaultCurrencyCode={defaultCurrencyCode} />
+            <DirectDebtForm contacts={contacts} />
           )}
         </CardContent>
       </Card>

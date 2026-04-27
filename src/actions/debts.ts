@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 
 import { actionError, refreshAppPaths } from "@/actions/common";
 import { backendJson } from "@/lib/backend-api";
+import { DEFAULT_CURRENCY_CODE } from "@/lib/money";
 import type { ActionState } from "@/lib/types";
 
 type DebtResponse = {
@@ -19,7 +20,7 @@ export async function createDirectDebt(_: ActionState, formData: FormData): Prom
       body: {
         title: formData.get("title"),
         amount: formData.get("amount"),
-        currencyCode: String(formData.get("currencyCode") ?? "").toUpperCase(),
+        currencyCode: DEFAULT_CURRENCY_CODE,
         debtDate: formData.get("debtDate"),
         note: formData.get("note") || undefined,
         direction: formData.get("direction"),
@@ -47,7 +48,7 @@ export async function updateDirectDebt(_: ActionState, formData: FormData): Prom
       body: {
         title: formData.get("title"),
         amount: formData.get("amount"),
-        currencyCode: String(formData.get("currencyCode") ?? "").toUpperCase(),
+        currencyCode: String(formData.get("currencyCode") || DEFAULT_CURRENCY_CODE).toUpperCase(),
         debtDate: formData.get("debtDate"),
         note: formData.get("note") || undefined
       }

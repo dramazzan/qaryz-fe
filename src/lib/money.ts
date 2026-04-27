@@ -1,5 +1,7 @@
 const MINOR_UNITS = 100;
 
+export const DEFAULT_CURRENCY_CODE = "KZT";
+
 export function parseMoneyToMinorUnits(raw: string) {
   const normalized = raw.trim().replace(",", ".");
 

@@ -21,7 +21,6 @@ export default async function AddPage() {
         groups={data.groups}
         contacts={data.recentContacts}
         defaultGroupId={lastGroupId}
-        defaultCurrencyCode={data.groups[0]?.currencyCode ?? "USD"}
       />
     </div>
   );
