@@ -58,25 +58,20 @@ export function DirectDebtForm({ contacts }: DirectDebtFormProps) {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="debt-contact">Друг или контакт</Label>
+        <Label htmlFor="debt-contact">Пользователь платформы</Label>
         <select
           id="debt-contact"
           name="borrowerId"
           defaultValue=""
           className="h-11 w-full rounded-lg border border-input bg-card px-3 text-sm"
         >
-          <option value="">Выберите из недавних контактов</option>
+          <option value="">Выберите пользователя</option>
           {contacts.map((contact) => (
             <option key={contact.id} value={contact.id}>
               {contact.name} {contact.email ? `(${contact.email})` : ""}
             </option>
           ))}
         </select>
-      </div>
-
-      <div className="space-y-2">
-        <Label htmlFor="debt-email">Email зарегистрированного пользователя</Label>
-        <Input id="debt-email" name="borrowerEmail" type="email" placeholder="friend@example.com" />
       </div>
 
       <div className="space-y-2">

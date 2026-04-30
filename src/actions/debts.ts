@@ -25,7 +25,6 @@ export async function createDirectDebt(_: ActionState, formData: FormData): Prom
         note: formData.get("note") || undefined,
         direction: formData.get("direction"),
         borrowerId: formData.get("borrowerId") || undefined,
-        borrowerEmail: formData.get("borrowerEmail") || undefined,
         externalCounterpartyName: formData.get("externalCounterpartyName") || undefined
       }
     });

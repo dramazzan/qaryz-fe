@@ -130,6 +130,7 @@ export type AddPageData = {
     }>;
   }>;
   recentContacts: RecentContact[];
+  platformUsers: PlatformUser[];
 };
 
 export type HistoryItem = {

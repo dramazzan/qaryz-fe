@@ -19,7 +19,7 @@ export default async function AddPage() {
 
       <AddEntryPanel
         groups={data.groups}
-        contacts={data.recentContacts}
+        contacts={data.platformUsers}
         defaultGroupId={lastGroupId}
       />
     </div>
