@@ -30,8 +30,14 @@
     @apply border-border;
   }
 
+  html {
+    @apply bg-background;
+    -webkit-text-size-adjust: 100%;
+  }
+
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply min-h-dvh bg-background text-foreground antialiased;
+    overscroll-behavior-y: none;
   }
 
   summary::-webkit-details-marker {
